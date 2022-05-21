@@ -1,5 +1,4 @@
 ﻿
-using Station.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,19 +37,19 @@ namespace Station
             _sceneLoader.OnLoadingProgress -= OnLoaderProgress;
         }
 
-        private void OnStartLoadScene(SceneType sceneType)
+        private void OnStartLoadScene()
         {
             SetSliderValue(0);
         }
         
         //75%
-        private void OnSceneInitialize(SceneType sceneType)
+        private void OnSceneInitialize()
         {
             SetSliderValue(0.75f);
         }
         
         //100%
-        private void OnSceneReady(SceneType sceneType)
+        private void OnSceneReady()
         {
             SetSliderValue(1);
         }

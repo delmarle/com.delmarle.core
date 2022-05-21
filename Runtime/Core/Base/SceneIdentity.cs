@@ -1,6 +1,5 @@
 ﻿
-using Station;
-using Station.Data;
+
 using UnityEngine;
 
 public class SceneIdentity : MonoBehaviour

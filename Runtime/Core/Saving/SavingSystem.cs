@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Station.Data;
 using UnityEngine;
 
 
@@ -83,7 +82,7 @@ namespace Station
         }
         
 
-        private void OnSceneInitialize(SceneType sceneType)
+        private void OnSceneInitialize()
         {
 
             

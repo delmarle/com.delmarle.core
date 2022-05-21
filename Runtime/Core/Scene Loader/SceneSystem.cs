@@ -1,10 +1,9 @@
 ﻿using System;
-using Station.Data;
 
 namespace Station
 {
     
-    public partial class SceneSystem : BaseSystem
+    public class SceneSystem : BaseSystem
     {
         #region FIELDS
 
@@ -34,11 +33,11 @@ namespace Station
             _settingsDb = GameInstance.GetDb<GameSettingsDb>();
         }
 
-        public void LoadNormalScene(string sceneName, SceneType sceneType, Action OnSceneLoadedCallback)
+        public void LoadNormalScene(string sceneName, Action OnSceneLoadedCallback)
         {
             _isLoadingScene = true;
             var loadingScreen = _settingsDb.Get().LoadingScreen;
-            LoadSceneTask task = new LoadSceneTask(sceneName, loadingScreen, sceneType);
+            LoadSceneTask task = new LoadSceneTask(sceneName, loadingScreen);
              task.SetEndCallback((templateTask, b, arg3, arg4) =>
              {
                  OnSceneLoaded();

@@ -4,7 +4,6 @@
 	#endif
 using System;
 using System.Collections;
-using Station.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,7 +25,6 @@ namespace Station
 		private bool _isLoading;
 		private string _currentScene;
 		private float _progress;
-		private SceneType _currentSceneLoadedType;
 		public float Progress => _progress;
 
 		private void MakeSingleton()
@@ -58,15 +56,14 @@ namespace Station
 
 		#endregion
 
-		public void LoadScene(string sceneName, SceneType sceneType)
+		public void LoadScene(string sceneName)
 		{
 			if (_isLoading) return;
-
-			_currentSceneLoadedType = sceneType;
+			
 			_currentScene = sceneName;
 			_isLoading = true;
 	
-			GameGlobalEvents.OnSceneStartLoad?.Invoke(sceneType);
+			GameGlobalEvents.OnSceneStartLoad?.Invoke();
 			UpdateProgressEvent(0);
 			_canvas.gameObject.SetActive(true);
 #if DOTWEEN
@@ -100,7 +97,7 @@ namespace Station
 			
 			yield return _waitForEndOfFrame;
 			GameInstance.StartGameMode();
-			GameGlobalEvents.OnSceneInitialize?.Invoke(_currentSceneLoadedType);
+			GameGlobalEvents.OnSceneInitialize?.Invoke();
 
 			while (_progress<1f)
 			{
@@ -108,7 +105,7 @@ namespace Station
 				yield return null;
 			}
 			yield return new WaitForSeconds(0.2f);
-			GameGlobalEvents.OnSceneLoadObjects?.Invoke(_currentSceneLoadedType);
+			GameGlobalEvents.OnSceneLoadObjects?.Invoke();
 
 #if DOTWEEN
 			_tweener = UiTween.SetCanvasFade(Ease.Linear, _canvas, false, FadeTime, DelayBeforeFadeOut);
@@ -129,7 +126,7 @@ namespace Station
 			#endif
 			
 			_isLoading = false;
-			GameGlobalEvents.OnSceneReady?.Invoke(_currentSceneLoadedType);
+			GameGlobalEvents.OnSceneReady?.Invoke();
 		}
 
 		public void UpdateProgressEvent(float progress)

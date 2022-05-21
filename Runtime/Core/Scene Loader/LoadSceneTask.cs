@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Station.Data;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -20,11 +19,10 @@ namespace Station
         private string _sceneName;
         private SceneLoader _loader;
         private StateLoading _state;
-        private SceneType _loadedType;
-        public LoadSceneTask(string sceneName, AssetReference loaderReference, SceneType sceneType)
+      
+        public LoadSceneTask(string sceneName, AssetReference loaderReference)
         {
             Proxy = new ProxyWithRunner();
-            _loadedType = sceneType;
             _sceneName = sceneName;
             _state = StateLoading.FadeIn;
             GameGlobalEvents.OnSceneInitialize.AddListener(OnSceneStartInitialize);
@@ -50,7 +48,7 @@ namespace Station
                 }
                 
                 SendProgress(_loader.Progress);
-                _loader.LoadScene(_sceneName, _loadedType);
+                _loader.LoadScene(_sceneName);
                
                 _state = StateLoading.LoadingScene;
                 
@@ -74,7 +72,7 @@ namespace Station
 
         }
         
-        private void OnSceneStartInitialize(SceneType loadedType)
+        private void OnSceneStartInitialize()
         {
             _state = StateLoading.InitializeScene;
         }
