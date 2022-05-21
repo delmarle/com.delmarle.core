@@ -8,6 +8,6 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/delmarle/Core.git"
+    "url": "https://github.com/delmarle/com.delmarle.core.git"
   }
 }
