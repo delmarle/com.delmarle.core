@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Malee.Editor;
+
 using UnityEditor;
 using UnityEngine;
 
@@ -11,11 +11,11 @@ namespace Station
     [CanEditMultipleObjects]
     public class ClipsAnimationEditor : UnityEditor.Editor
     {
-        private ReorderableList reorderableList;
+       // private ReorderableList reorderableList;
         
         private void OnEnable()
         {
-            reorderableList = new ReorderableList(serializedObject.FindProperty("AnimationModels"));
+            //reorderableList = new ReorderableList(serializedObject.FindProperty("AnimationModels"));
         }
 
 
@@ -40,7 +40,7 @@ namespace Station
 
            
             //draw the list using GUILayout, you can of course specify your own position and label
-            reorderableList.DoLayoutList();
+          //  reorderableList.DoLayoutList();
 
 
             SetClipLegacy();
