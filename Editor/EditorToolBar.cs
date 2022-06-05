@@ -16,6 +16,34 @@ namespace RPG.Editor
     private static void LoadToolBar()
     {
       ToolbarHeight = GUILayout.Height(50);
+      ToolbarOptions = new GUIContent[10];
+      
+      ToolbarOptions[0] = new GUIContent("<size=11><b> Configuration</b></size>",GetEditorTexture("cog"),"");
+      ToolbarOptions[1] = new GUIContent("<size=11><b> Difficulty</b></size>", GetEditorTexture("heart"), "");
+      ToolbarOptions[2] = new GUIContent("<size=11><b> Options</b></size>", GetEditorTexture("group"), "");
+      ToolbarOptions[3] = new GUIContent("<size=11><b> Platforms</b></size>", GetEditorTexture("flag_flyaway_green"), "");
+      ToolbarOptions[4] = new GUIContent("<size=11><b> Inputs Event</b></size>", GetEditorTexture("flag_flyaway_green"), "");
+      ToolbarOptions[5] = new GUIContent("<size=11><b> Floating Popups</b></size>", GetEditorTexture("flag_flyaway_green"), "");
+      ToolbarOptions[6] = new GUIContent("<size=11><b> Ui Channels</b></size>", GetEditorTexture("flag_flyaway_green"), "");
+      ToolbarOptions[7] = new GUIContent("<size=11><b> Sounds</b></size>", GetEditorTexture("flag_flyaway_green"), "");
+      ToolbarOptions[8] = new GUIContent("<size=11><b> FootSteps</b></size>", GetEditorTexture("flag_flyaway_green"), "");
+      ToolbarOptions[9] = new GUIContent("<size=11><b> Ui Prefabs</b></size>", GetEditorTexture("flag_flyaway_green"), "");
+
+      FootStepsToolbarOptions = new GUIContent[3];
+      FootStepsToolbarOptions[0] = new GUIContent("<size=11><b> Settings</b></size>", GetEditorTexture("zone"), "");
+      FootStepsToolbarOptions[1] = new GUIContent("<size=11><b>  Surfaces</b></size>",GetEditorTexture("legend"),"");
+      FootStepsToolbarOptions[2] = new GUIContent("<size=11><b> Templates</b></size>", GetEditorTexture("zone"), "");
+      
+      FieldsPrefabsToolbarOptions = new GUIContent[3];
+      FieldsPrefabsToolbarOptions[0] = new GUIContent("<size=11><b> Fields</b></size>", GetEditorTexture("toolbar_add"), "");
+      FieldsPrefabsToolbarOptions[1] = new GUIContent("<size=11><b>  Ui Popups prefabs</b></size>",GetEditorTexture("legend"),"");
+      FieldsPrefabsToolbarOptions[2] = new GUIContent("<size=11><b> Pooled prefabs</b></size>", GetEditorTexture("arrow_repeat"), "");
+
+    }
+    
+    private static void LoadRpgToolBar()
+    {
+      ToolbarHeight = GUILayout.Height(50);
       ToolbarOptions = new GUIContent[9];
       
       ToolbarOptions[0] = new GUIContent("<size=11><b> Game config</b></size>",GetEditorTexture("cog"),"");
@@ -39,6 +67,7 @@ namespace RPG.Editor
       FieldsPrefabsToolbarOptions[2] = new GUIContent("<size=11><b> Pooled prefabs</b></size>", GetEditorTexture("arrow_repeat"), "");
 
     }
+    public static GUIContent[] RpgToolbarOptions;  
   }
 }
 
