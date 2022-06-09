@@ -61,8 +61,20 @@ namespace RPG.Editor
                 case 1:
                     //StatsTab.DrawTab();
                     break;
+                case 5:
+                    FloatingPopupEditor.DrawContent();
+                    break;
+                case 6:
+                    UiNotificationChannelsEditor.DrawContent();
+                    break;
                 case 7:
                     SoundTabEditor.DrawContent();
+                    break;
+                case 8:
+                    FootStepsTabEditor.DrawContent();
+                    break;
+                case 9:
+                    FieldsPrefabsEditor.DrawContent();
                     break;
             }
         }

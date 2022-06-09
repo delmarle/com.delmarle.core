@@ -5,7 +5,7 @@
     #region FIELDS
     public const string EDITOR_OBJECT_PICKER_COMMAND_NAME = "ObjectSelectorUpdated";
     
-    private const string EDITOR_ASSETS_PATH = "Assets/Core/Editor/Assets/";
+    private const string EDITOR_ASSETS_PATH = "Assets/com.delmarle.core/Editor/Assets/";
     public const string EDITOR_DB_PATH = "Assets/Content/Databases/Resources/";
     public const string EDITOR_SOUND_GROUP_PATH = "Assets/Content/SoundsGroups/";
     public const string EDITOR_FOOTSTEPS_TEMPLATES_PATH = "Assets/Content/FootStepsTemplates/";
