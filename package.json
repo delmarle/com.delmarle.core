@@ -1,10 +1,10 @@
 {
   "name": "com.delmarle.core",
   "displayName": "Core",
-  "version": "1.0.0",
-  "unity": "2020.1",
+  "version": "1.0.1",
+  "unity": "2021.3",
   "author": "Delmarle",
-  "description": "Unity Framework for gameplay and systems",
+  "description": "Unity Framework for game play and systems",
   "dependencies": {},
   "repository": {
     "type": "git",
