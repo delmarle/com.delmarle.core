@@ -89,6 +89,18 @@ namespace RPG.Editor
       {
         return null;
       }
+      
+      if (_cachedTextures.ContainsKey(textureName) == false)
+      {
+        string path = EDITOR_ASSETS_PATH_EX + textureName + ".png";
+        var tex = EditorGUIUtility.Load(path);
+        if (tex != null)
+        {
+          _cachedTextures.Add(textureName,EditorGUIUtility.Load(path) as Texture2D);
+        }
+       
+      }
+
 
       if (_cachedTextures.ContainsKey(textureName) == false)
       {
