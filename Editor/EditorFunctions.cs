@@ -90,6 +90,7 @@ namespace RPG.Editor
         return null;
       }
       
+      
       if (_cachedTextures.ContainsKey(textureName) == false)
       {
         string path = EDITOR_ASSETS_PATH_EX + textureName + ".png";
