@@ -44,7 +44,7 @@ namespace RPG.Editor
     private static void LoadRpgToolBar()
     {
       ToolbarHeight = GUILayout.Height(50);
-      ToolbarOptions = new GUIContent[9];
+      RpgToolbarOptions = new GUIContent[9];
       
       RpgToolbarOptions[0] = new GUIContent("<size=11><b> Game config</b></size>",GetEditorTexture("cog"),"");
       RpgToolbarOptions[1] = new GUIContent("<size=11><b> Stats</b></size>", GetEditorTexture("heart"), "");
