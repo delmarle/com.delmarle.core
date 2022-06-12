@@ -38,7 +38,7 @@ namespace RPG.Editor
       FieldsPrefabsToolbarOptions[0] = new GUIContent("<size=11><b> Fields</b></size>", GetEditorTexture("toolbar_add"), "");
       FieldsPrefabsToolbarOptions[1] = new GUIContent("<size=11><b>  Ui Popups prefabs</b></size>",GetEditorTexture("legend"),"");
       FieldsPrefabsToolbarOptions[2] = new GUIContent("<size=11><b> Pooled prefabs</b></size>", GetEditorTexture("arrow_repeat"), "");
-
+      LoadRpgToolBar();
     }
     
     private static void LoadRpgToolBar()
@@ -46,15 +46,15 @@ namespace RPG.Editor
       ToolbarHeight = GUILayout.Height(50);
       ToolbarOptions = new GUIContent[9];
       
-      ToolbarOptions[0] = new GUIContent("<size=11><b> Game config</b></size>",GetEditorTexture("cog"),"");
-      ToolbarOptions[1] = new GUIContent("<size=11><b> Stats</b></size>", GetEditorTexture("heart"), "");
-      ToolbarOptions[2] = new GUIContent("<size=11><b> Characters</b></size>", GetEditorTexture("group"), "");
-      ToolbarOptions[3] = new GUIContent("<size=11><b> Factions</b></size>", GetEditorTexture("flag_flyaway_green"), "");
-      ToolbarOptions[4] = new GUIContent("<size=11><b> Progression</b></size>", GetEditorTexture("plus_button"), "");
-      ToolbarOptions[5] = new GUIContent("<size=11><b> Skills</b></size>", GetEditorTexture("tree_list"), "");
-      ToolbarOptions[6] = new GUIContent("<size=11><b> Items</b></size>", GetEditorTexture("package"), "");
-      ToolbarOptions[7] = new GUIContent("<size=11><b> World</b></size>", GetEditorTexture("map"), "");
-      ToolbarOptions[8] = new GUIContent("<size=11><b> Interactions</b></size>", GetEditorTexture("hand_property"), "");
+      RpgToolbarOptions[0] = new GUIContent("<size=11><b> Game config</b></size>",GetEditorTexture("cog"),"");
+      RpgToolbarOptions[1] = new GUIContent("<size=11><b> Stats</b></size>", GetEditorTexture("heart"), "");
+      RpgToolbarOptions[2] = new GUIContent("<size=11><b> Characters</b></size>", GetEditorTexture("group"), "");
+      RpgToolbarOptions[3] = new GUIContent("<size=11><b> Factions</b></size>", GetEditorTexture("flag_flyaway_green"), "");
+      RpgToolbarOptions[4] = new GUIContent("<size=11><b> Progression</b></size>", GetEditorTexture("plus_button"), "");
+      RpgToolbarOptions[5] = new GUIContent("<size=11><b> Skills</b></size>", GetEditorTexture("tree_list"), "");
+      RpgToolbarOptions[6] = new GUIContent("<size=11><b> Items</b></size>", GetEditorTexture("package"), "");
+      RpgToolbarOptions[7] = new GUIContent("<size=11><b> World</b></size>", GetEditorTexture("map"), "");
+      RpgToolbarOptions[8] = new GUIContent("<size=11><b> Interactions</b></size>", GetEditorTexture("hand_property"), "");
       
       FootStepsToolbarOptions = new GUIContent[3];
       FootStepsToolbarOptions[0] = new GUIContent("<size=11><b> Settings</b></size>", GetEditorTexture("zone"), "");
