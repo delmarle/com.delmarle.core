@@ -188,7 +188,7 @@ namespace Station
     {
         void Initialize();
         void FetchData();
-        void Save();
+        void Save(bool fetch = true);
     }
     public abstract class SaveModule<T> : ISaveModule
     {
@@ -213,9 +213,12 @@ namespace Station
         {
         }
 
-        public void Save()
+        public void Save(bool fetch = true)
         {
-            FetchData();
+            if(fetch)
+            {
+                 FetchData();
+            }
             Write();
         }
 
@@ -248,7 +251,7 @@ namespace Station
 
     public interface IAreaSave
     {
-        void Save();
+        void Save(bool fetch = true);
         void Load(string areaName);
     }
 
@@ -270,7 +273,7 @@ namespace Station
             //TODO get all containers
         }
         
-        public void Save()
+        public void Save(bool fetch = true)
         {
             if (Value == null) return;
             
