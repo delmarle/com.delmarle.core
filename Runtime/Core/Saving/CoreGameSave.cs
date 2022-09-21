@@ -12,6 +12,7 @@ namespace Station
     {
         public GenericSaveDictionary<bool> BoolMap = new GenericSaveDictionary<bool>();
         public GenericSaveDictionary<string> StringMap = new GenericSaveDictionary<string>();
+        public GenericSaveDictionary<int> IntMap = new GenericSaveDictionary<int>();
     }
 
     [Serializable]
