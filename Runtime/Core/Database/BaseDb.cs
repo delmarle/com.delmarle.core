@@ -25,7 +25,7 @@ namespace Station
         {
             BaseDb found = null;
 #if UNITY_EDITOR
-            string dbPath = "Assets/Content/Databases/" +  typeDb.Name + @".asset";
+            string dbPath = "Assets/Content/Databases/Resources/" +  typeDb.Name + @".asset";
             found = AssetDatabase.LoadAssetAtPath<BaseDb>(dbPath);
             if (found == null)
             {
