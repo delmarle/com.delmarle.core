@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Station.Data;
 using UnityEngine;
 
 
@@ -83,7 +82,7 @@ namespace Station
         }
         
 
-        private void OnSceneInitialize(SceneType sceneType)
+        private void OnSceneInitialize()
         {
 
             
@@ -97,7 +96,7 @@ namespace Station
             {
                 if (gameMode.SaveSettings.SaveOnEnter)
                 {
-                    FetchAndSaveAll();
+                   // FetchAndSaveAll();
                 }
             }
         }
@@ -114,7 +113,7 @@ namespace Station
             }
         }
 
-        private void FetchAndSaveAll()
+        public void FetchAndSaveAll()
         {
             foreach (var module in _modules.Values)
             {
@@ -129,9 +128,8 @@ namespace Station
                 castedModule.Save();
             }
             
-            //MainSave.FetchData();
-            //MainSave.Save();
             SaveMain();
+            Debug.Log("SAVED ALL");
         }
         #endregion
         
@@ -189,7 +187,7 @@ namespace Station
     {
         void Initialize();
         void FetchData();
-        void Save();
+        void Save(bool fetch = true);
     }
     public abstract class SaveModule<T> : ISaveModule
     {
@@ -214,9 +212,12 @@ namespace Station
         {
         }
 
-        public void Save()
+        public void Save(bool fetch = true)
         {
-            FetchData();
+            if(fetch)
+            {
+                 FetchData();
+            }
             Write();
         }
 
@@ -249,7 +250,7 @@ namespace Station
 
     public interface IAreaSave
     {
-        void Save();
+        void Save(bool fetch = true);
         void Load(string areaName);
     }
 
@@ -271,7 +272,7 @@ namespace Station
             //TODO get all containers
         }
         
-        public void Save()
+        public void Save(bool fetch = true)
         {
             if (Value == null) return;
             
@@ -298,10 +299,15 @@ namespace Station
             {
                 Value = tempData;
             }
+
+            if (Value == null)
+            {
+                BuildDefaultData();
+            }
         }
         
 
-        private void BuildDefaultData()
+        protected virtual void BuildDefaultData()
         {
             Value = default;
         }
