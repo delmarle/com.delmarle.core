@@ -118,6 +118,7 @@ namespace Station
             
             var saveSystem = GetSystem<SavingSystem>();
             saveSystem.TryEnterSceneSaveTrigger();
+            StartSaveLoop();
         }
 
         public static void EndGameMode()
@@ -129,6 +130,7 @@ namespace Station
             GameGlobalEvents.OnBeforeLeaveScene?.Invoke();
             var saveSystem = GetSystem<SavingSystem>();
             saveSystem.TryExitSceneSaveTrigger();
+            StopSaveLoop();
             if (_currentGameMode != null)
             {
                 _currentGameMode.DoExitScene();
@@ -136,6 +138,30 @@ namespace Station
             }
         }
         #endregion
+
+        private Timer _autoSaveTimer;
+        private void StartSaveLoop()
+        {
+            int saveTimer = _currentGameMode.SaveSettings.AutoSaveTimer;
+            if (saveTimer > 0)
+            {
+                _autoSaveTimer = Timer.Register(saveTimer,DoSave, null, true);
+            }
+        }
+
+        private void StopSaveLoop()
+        {
+            if (_autoSaveTimer != null)
+            {
+                _autoSaveTimer.Cancel();
+            }
+        }
+
+        private void DoSave()
+        {
+            var saveSystem = GetSystem<SavingSystem>();
+            saveSystem.FetchAndSaveAll();
+        }
     }
 
 }
