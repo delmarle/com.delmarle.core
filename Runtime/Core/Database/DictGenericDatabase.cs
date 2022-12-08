@@ -27,7 +27,7 @@ namespace Station
       return GetEnumerator();
     }
 
-    public void Add(T entry)
+     public void Add(T entry)
     {
       string key = Guid.NewGuid().ToString();
       while (Db.ContainsKey(key))
@@ -35,8 +35,12 @@ namespace Station
         key = Guid.NewGuid().ToString();
       }
       Db.Add(key ,entry);
+      OnAdd(key ,entry);
       ForceRefresh();
     }
+    
+    public virtual void OnAdd(string key, T entry)
+    {}
 
     public bool HasKey(string key)
     {
