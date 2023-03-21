@@ -11,6 +11,11 @@ namespace Station
         private int _tasksCount;
         private List<ITask>.Enumerator _tasksEnumerator;
 
+        public SerialTask()
+        {
+            Proxy = new ProxyWithRunner();
+        }
+
         protected override IEnumerator HandleExecute()
         {
             if (Result == null)
