@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 
 namespace Station
@@ -10,7 +9,7 @@ namespace Station
         #region FIELDS
         //PANELS
         private UiElementBase _openedElement;
-        private UiElementBase _defaultElement;
+ 
         private Dictionary<Type, UiPanel> _cachedPanels = new Dictionary<Type, UiPanel>();
         
         //UNIQUE POPUPS
@@ -50,7 +49,6 @@ namespace Station
         private void ClearCache()
         {
             _openedElement = null;
-            _defaultElement = null;
             _cachedPanels = new Dictionary<Type, UiPanel>();
         }
 
@@ -131,12 +129,7 @@ namespace Station
             {
                 _openedElement.Hide();
             }
-
-            if (showDefault && _defaultElement != null)
-            {
-                _defaultElement.Show();
-                _openedElement = _defaultElement;
-            }
+            
             else
             {
                 _openedElement = null;
@@ -144,27 +137,12 @@ namespace Station
 
         }
         
-        private void RegisterDefault(UiPanel element)
-        {
-            if (_defaultElement)
-            {
-                Debug.LogError("default panel duplicated:" + _defaultElement);
-            }
-
-            _defaultElement = element;
-            ShowPanel(_defaultElement.GetType());
-        }
 
         #region STATIC CALLS
 
         public static void RegisterPanel(UiPanel element)
         {
             _instance?.Register(element);
-        }
-
-        public static void RegisterDefaultPanel(UiPanel element)
-        {
-            _instance?.RegisterDefault(element);
         }
 
         public static void UnRegisterPanel(UiPanel element)
