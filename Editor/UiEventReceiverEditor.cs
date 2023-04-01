@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using RPG.Editor;
 using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
 
 
@@ -43,50 +41,13 @@ namespace Station
                             GUIUtility.ExitGUI();
                         }
 
-                        if (EditorStatic.Button(true, 22, "Panel to show", "plus"))
-                        {
-                            ev._panelToShow.Add(null);
-                        }
-
-                        if (EditorStatic.Button(true, 22, "Panel to hide", "plus"))
-                        {
-                            ev._panelToHide.Add(null);
-                        }
+                     
                     }
                     EditorGUILayout.EndHorizontal();
                   
                     EditorStatic.DrawLargeLine();
                     EditorStatic.DrawSectionTitle(24, "Panels to show:");
-                    for (int j = 0; j < ev._panelToShow.Count; j++)
-                    {
-                        EditorGUILayout.BeginHorizontal();
-                        ev._panelToShow[j] = (UiPanel)EditorGUILayout.ObjectField($"{j}:", ev._panelToShow[j], typeof(UiPanel), true);
-                        EditorStatic.DrawThinLine();
-                        if (EditorStatic.SizeableButton(50, 20, "X", ""))
-                        {
-                            ev._panelToShow.RemoveAt(j);
-                            EditorGUILayout.EndHorizontal();
-
-                            GUIUtility.ExitGUI();
-                        }
-                        EditorGUILayout.EndHorizontal();
-                    }
-                    EditorStatic.DrawLargeLine();
-                    EditorStatic.DrawSectionTitle(24, "Panels to hide:");
-                    for (int j = 0; j < ev._panelToHide.Count; j++)
-                    {
-                        EditorGUILayout.BeginHorizontal();
-                        ev._panelToHide[j] = (UiPanel)EditorGUILayout.ObjectField($"{j}:", ev._panelToHide[j], typeof(UiPanel), true);
-                        EditorStatic.DrawThinLine();
-                        if (EditorStatic.SizeableButton(50, 20, "X", ""))
-                        {
-                            ev._panelToHide.RemoveAt(j);
-                            EditorGUILayout.EndHorizontal();
-
-                            GUIUtility.ExitGUI();
-                        }
-                        EditorGUILayout.EndHorizontal();
-                    }
+                    ev._panelToShow = (UiPanel)EditorGUILayout.ObjectField($"", ev._panelToShow, typeof(UiPanel), true);
                 }
             }
         }

@@ -40,25 +40,14 @@ namespace Station
     public class UiEventReceiverData
     {
         public UiEventData EventData;
-        public List<UiPanel> _panelToShow = new List<UiPanel>();
-        public List<UiPanel> _panelToHide = new List<UiPanel>();
+        public UiPanel _panelToShow;
 
         public void PlayEvent()
         {
-            foreach (var panel in _panelToHide)
+   
+            if (_panelToShow != null)
             {
-                if (panel != null)
-                {
-                    UiSystem.HidePanel(panel.GetType());
-                }
-            }
-            
-            foreach (var panel in _panelToShow)
-            {
-                if (panel != null)
-                {
-                    UiSystem.OpenPanel(panel.GetType());
-                }
+                UiSystem.OpenPanel(_panelToShow.GetType());
             }
         }
     }
